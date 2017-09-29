@@ -33,6 +33,7 @@ constructor(public navCtrl: NavController, public appCtrl: App, public viewCtrl:
   public navParams: NavParams , public auservice : AuthServiceProvider,public toastCtrl: ToastController) {
   this.cargarDatos();
   this.objUsuario = new Usuario();
+  this.contrasenia = "";
 }
 
 presentToast(textToShow) {
@@ -78,7 +79,8 @@ cargarDatos()
 
 
 validateUser(){
- if (this.contrasenia != this.objUsuario.clave){
+
+ if (this.contrasenia != this.objUsuario.clave || this.contrasenia == ""){
    this.presentToast("Contraseña inválida");
  }
    else{
