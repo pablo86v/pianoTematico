@@ -17,15 +17,18 @@
   <ion-list>
 
     <ion-item>
-      <ion-label fixed>Username</ion-label>
-      <ion-input type="text" value=""></ion-input>
+      <ion-label>Usuario</ion-label>
+      <ion-select [(ngModel)]="usuario" (ngModelChange)="selectUser($event)">
+        <ion-option value={{item.nombre}} *ngFor="let item of items">{{item.nombre}}</ion-option>
+      </ion-select>
     </ion-item>
 
-    <ion-item>
-      <ion-label fixed>Password</ion-label>
-      <ion-input type="password"></ion-input>
+    <ion-item >
+      <ion-label fixed >Contraseña</ion-label>
+       <ion-input text-right type="text" [(ngModel)]="contrasenia" ></ion-input>   
     </ion-item>
+
 
   </ion-list>
-  <button ion-button (click)="pushPage()">Iniciar sesión</button>
+  <button ion-button (click)="validateUser()">Iniciar sesión</button>
 </ion-content>

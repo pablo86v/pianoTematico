@@ -3,7 +3,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import { App, ViewController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+
 import {HomePage} from '../../pages/home/home';
+import { Usuario} from '../../entidades/usuario';
+
+
 
 /**
  * Generated class for the LoginPage page.
@@ -20,15 +25,43 @@ import {HomePage} from '../../pages/home/home';
 export class LoginPage {
 
 items: any[];
+contrasenia : string;
+objUsuario: Usuario;
 
-constructor(public navCtrl: NavController, public appCtrl: App, public viewCtrl: ViewController, public navParams: NavParams , public auservice : AuthServiceProvider) {
+
+constructor(public navCtrl: NavController, public appCtrl: App, public viewCtrl: ViewController, 
+  public navParams: NavParams , public auservice : AuthServiceProvider,public toastCtrl: ToastController) {
   this.cargarDatos();
+  this.objUsuario = new Usuario();
 }
 
-ionViewDidLoad() {
+presentToast(textToShow) {
+  const toast = this.toastCtrl.create({
+    message: textToShow,
+    duration: 2000,
+    position: 'middle'
+  });
 
-  console.log('ionViewDidLoad LoginPage');
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
+}
+
+
+selectUser(valor)
+{
+  
+for (let user of this.items) {
+  if(user.nombre == valor){
+     this.objUsuario = user;
+     this.contrasenia = user.clave;
   }
+}
+console.info(this.objUsuario);
+
+}//selectUser
 
 cargarDatos()
   {
@@ -44,5 +77,20 @@ cargarDatos()
   } 
 
 
-
+validateUser(){
+ if (this.contrasenia != this.objUsuario.clave){
+   this.presentToast("Contraseña inválida");
+ }
+   else{
+   this.pushPage();
+ }
 }
+
+
+  ionViewDidLoad() {
+  console.log('ionViewDidLoad LoginPage');
+  }
+
+
+}//classs
+
