@@ -4,31 +4,33 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar>
-    <ion-title>Login</ion-title>
+    <ion-title>login</ion-title>
   </ion-navbar>
 
-</ion-header>
+</ion-header> -->
 
 
-<ion-content padding>
-  <ion-list>
+<ion-content id="body" class="py-0" padding>
 
-    <ion-item>
-      <ion-label>Usuario</ion-label>
-      <ion-select [(ngModel)]="usuario" (ngModelChange)="selectUser($event)">
-        <ion-option value={{item.nombre}} *ngFor="let item of items">{{item.nombre}}</ion-option>
-      </ion-select>
-    </ion-item>
+  <ion-row>
+    <ion-col col-12 class="py-0">
+    <div align="center">
+      <img src="./assets/img/logo5.png" class="mt-0 img" width="600">
+    </div>
+    </ion-col>
+  </ion-row>
 
-    <ion-item >
-      <ion-label fixed >Contraseña</ion-label>
-       <ion-input text-right type="text" [(ngModel)]="contrasenia" ></ion-input>   
-    </ion-item>
+  <div class="row">
 
+    <div class="col-12 mt-4">
+        <input type="text" class="form-control" placeholder="Ingrese usuario" [(ngModel)]="usuario" name="usuario" disabled>
+        <input type="password" class="form-control mt-2" placeholder="Ingrese contraseña" [(ngModel)]="contrasenia" name="contrasenia" disabled>
+    </div>
+  </div>
+  <button ion-button block color="primary" class="btn mt-2" (click)="ingresarComo()">Acceder como...</button>
+  <button ion-button block color="primary" class="btn btn-ingresar mt-4" (click)="ingresar()"><i class="fa fa-sign-in" aria-hidden="true"></i> INGRESAR</button>
 
-  </ion-list>
-  <button ion-button (click)="validateUser()">Iniciar sesión</button>
 </ion-content>

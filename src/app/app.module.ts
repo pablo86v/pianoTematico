@@ -1,52 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { HttpModule }    from '@angular/http';
-import { MyApp } from './app.component';
-import { StatusBar } from '@ionic-native/status-bar';
-
-
-//Páginas
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { LoginPage } from '../pages/login/login';
-
-//Servicios
-import { AuthServiceProvider } from '../providers/auth-service/auth-service';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { environment } from '../environments/environment';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { NativeAudio } from '@ionic-native/native-audio';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+import { CONFIG } from './firebase';
+
+import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
+import { UsuarioServiceProvider } from '../providers/usuario-service/usuario-service';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage,
-    ListPage
+    LoginPage
   ],
   imports: [
-    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
+    AngularFireModule.initializeApp(CONFIG),
     AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage,
-    ListPage
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    AuthServiceProvider,
+    NativeAudio,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider
+    UsuarioServiceProvider
   ]
 })
 export class AppModule {}
