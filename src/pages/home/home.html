@@ -1,18 +1,65 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content class="fondo" padding>
+  <ion-grid>
+      <ion-row>
+          <ion-col col-12 class="px-1 py-0">
+              <button ion-button class="btn-salir" (click)="desloguearse()"><span class="text-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;Salir</span></button>
+          </ion-col>
+      </ion-row>
+    <ion-row class="py-0 mt-0">
+      <ion-col col-6 class="px-2 py-1">
+        <button ion-button class="btn btn-1 mr-0" (click)="playSound('id_1')">
+            <img [src]="url_img[0].url" width="100%">
+        </button>
+        </ion-col>
+      <ion-col col-6 class="px-2 py-1">
+        <button ion-button class="btn btn-2 ml-0" (click)="playSound('id_2')">
+            <img [src]="url_img[1].url" width="90%">
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="px-0">
+        <ion-col col-12 class="py-0 px-2">
+          <button ion-button class="btn btn-3" (click)="playSound('id_3')">
+            <img [src]="url_img[2].url" width="50%" >
+          </button>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-6 class="px-2 py-1">
+          <button ion-button class="btn btn-4" (click)="playSound('id_4')">
+              <img [src]="url_img[3].url" class="img-4">
+          </button>
+          </ion-col>
+        <ion-col col-6 class="px-2 py-1 ">
+          <button ion-button class="btn btn-5" (click)="playSound('id_5')">
+              <img [src]="url_img[4].url" width="100%">
+          </button>
+          </ion-col>
+      </ion-row>
+      
+      <ion-row class="mt-2">
+        <ion-col col-12 class="px-1" >
+          <button ion-button block [className]="classBtnTematica" (click)="cambiarTematica()" id="btn-tematica" text-uppercase>Cambiar temática</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-6 class="px-1 py-0" >
+            <button ion-button block color="danger" (click)="grabarSecuencia()" class="btn-audio" text-uppercase [disabled]="disabledBtnGrabar">Grabar</button>
+          </ion-col>
+          <ion-col col-6 class="px-1 py-0" >
+            <button ion-button block color="secondary" (click)="reproducirSecuencia()" class="btn-audio" text-uppercase [disabled]="disabledBtnReproducir">Repr.</button>
+          </ion-col>
+      </ion-row>
+      
+    
+  </ion-grid>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

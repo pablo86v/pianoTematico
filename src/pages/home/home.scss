@@ -1,3 +1,86 @@
 page-home {
+    
+    .fondo{
+        background: #794a4f;
+        margin-top: 0%;
+    }
+    
+    .btn{
+        width: 100%; 
+        height: 120px;
+        border-radius: 0;
+    }
+
+    .btn-1{
+        background: rgb(255, 177, 0);
+    }
+
+    .btn-2{
+        background: #488aff;
+    }
+
+    .btn-3{
+        background: #dc3545;
+    }
+
+    .btn-4{
+        background: rgb(29, 101, 45);
+    }
+
+    .btn-5{
+        background: rgba(103, 58, 183, 0.8);
+    }
+
+    .img-4{
+        width: 300px;
+    }
+
+    #btn-tematica{
+        height:45px;
+        width: 100%;
+        color: rgba(248, 249, 250, 0.58);
+        border: 1px solid rgba(255, 255, 255, 0.63);  
+        border-radius: 3px; 
+        text-shadow: -3px -3px 3px #000;
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .btn-animales{
+        background-image: url("./../assets/img/texturas/btn-textura.jpg");
+    }
+
+    .btn-instrumentos{
+        background-image: url("./../assets/img/texturas/btn-textura.jpg");   
+        color: rgba(248, 249, 250, 0.70) !important;
+        text-shadow: -4px -4px 4px #000 !important;
+    }
+
+    .btn-vehiculos{
+        background-image: url("./../assets/img/texturas/btn-textura.jpg");
+    }
+
+    .btn-audio{
+        height:45px;
+        width: 100%;
+        color: rgba(248, 249, 250, 0.58);
+        font-weight: bold;
+        font-size: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.63);  
+        border-radius: 3px; 
+        text-shadow: -2px -2px 2px #000;
+    }
+
+    .btn-salir{
+        width: 100%;
+        height:30px;
+        background: #731d25;
+        font-weight: bold;
+        font-size: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.63);  
+        border-radius: 3px; 
+        //text-align: left;
+    }
+
 
 }
